@@ -1,0 +1,22 @@
+; ============================================
+; RealTimeMod - Real Time Synchronization
+; Example configuration for Gothic.ini
+; ============================================
+;
+; Copy these settings to your Gothic.ini file
+; Location: [Gothic2]\System\Gothic.ini
+;
+; Add a new section [RealTimeMod] or modify existing one
+
+[RealTimeMod]
+
+; ============================================
+; showClock
+; ============================================
+; Controls whether the game clock is displayed on screen
+;
+; 0 = Clock disabled (no display)
+; 1 = Clock enabled (shows game time synchronized with real time)
+;
+; Default: 1
+showClock=1
