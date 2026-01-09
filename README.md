@@ -50,10 +50,7 @@ The plugin intercepts the game's time system and:
 3. Optionally displays the current time in the game interface
 
 ## Compatibility
-
-- **Gothic II Classic**: Fully supported
-- **Gothic II Night of the Raven**: Fully supported
-- **Gothic I**: Not supported (different time system)
+Compatible with Gothic I/G1A/G2/G2NotR
 
 ## License
 
