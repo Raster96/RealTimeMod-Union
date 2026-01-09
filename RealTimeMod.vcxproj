@@ -9,6 +9,10 @@
       <Configuration>G2 MT Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="MP x4 MT Release|Win32">
+      <Configuration>MP x4 MT Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{12345678-1234-1234-1234-123456789012}</ProjectGuid>
@@ -32,6 +36,13 @@
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MP x4 MT Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -39,6 +50,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='MP x4 MT Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -51,6 +65,14 @@
     <TargetName>RealTimeMod</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Bin\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir);$(ProjectDir)ZenGin\Gothic_UserAPI\;$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0m\Include\;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ALLUSERSPROFILE)\Union\SDK\Union\v1.0m\Lib\;$(LibraryPath)</LibraryPath>
+    <TargetName>RealTimeMod</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MP x4 MT Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Bin\</OutDir>
     <IntDir>$(Configuration)\</IntDir>
@@ -98,13 +120,70 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MP x4 MT Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GOTHICPLUGIN_EXPORTS;__G1;__G1A;__G2;__G2A;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(SolutionDir)PDB\$(TargetName).pdb</ProgramDatabaseFile>
+    </Link>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DllMain.cpp" />
     <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="ZenGin\Gothic_II_Addon\ClassDeclarators_G2A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="ZenGin\Gothic_II_Addon\Globals_G2A.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Addon\Statics_G2A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Classic\ClassDeclarators_G2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="ZenGin\Gothic_II_Classic\Globals_G2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_II_Classic\Statics_G2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\ClassDeclarators_G1A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\Globals_G1A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Addon\Statics_G1A.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Classic\ClassDeclarators_G1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Classic\Globals_G1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="ZenGin\Gothic_I_Classic\Statics_G1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2 MT Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='G2A MT Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
