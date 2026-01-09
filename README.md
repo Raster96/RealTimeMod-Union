@@ -1,17 +1,17 @@
-# RealTimeMod-Union
+# RealTimeMod-Union [Gothic I/G1A/G2/G2NotR]
 
-RealTimeMod-Union is a Union plugin for Gothic II that synchronizes the in-game time with the system clock. Time in the game flows in real time (1 second in game = 1 second in real life).
+RealTimeMod-Union is a Union plugin for Gothic I/G1A/G2/G2NotR that synchronizes the in-game time with the system clock. Time in the game flows in real time (1 second in game = 1 second in real life).
 
 ## Features
 
 - **Real-time synchronization**: Game time matches your system clock
 - **Clock display**: Optional in-game clock display (configurable)
-- **Multi-engine support**: Compatible with Gothic II Classic and Gothic II Night of the Raven
+- **Multi-engine support**: Compatible with Gothic I/G1A/G2/G2NotR
 
 ## Installation
 
 1. Download the latest release from [Releases](https://github.com/Raster96/RealTimeMod-Union/releases/tag/v1.0.0)
-2. Copy the compiled `RealTimeMod-Union.vdf` to your Gothic II\Data\Plugins folder
+2. Copy the compiled `RealTimeMod-Union.vdf` to your Gothic\Data\Plugins folder
 3. Make sure you have Union installed and properly configured
 4. The plugin will be loaded automatically by Union
 
